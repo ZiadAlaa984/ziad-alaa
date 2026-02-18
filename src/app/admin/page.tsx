@@ -1,0 +1,126 @@
+"use client"
+
+import { User, BookOpen, Mail, Briefcase, Code2, Award } from 'lucide-react'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import ProjectsContent from './TabContent/ProjectsContent'
+import Login from './auth/login'
+import { useAuth } from '@/context/useAuth'
+import { useEffect, useState } from 'react'
+import Loading from '../loading'
+import { Button } from '@/components/ui/button'
+import { LogoutButton } from './auth/signout'
+
+const tabs = [
+  {
+    name: 'Profile',
+    value: 'profile',
+    icon: User,
+    content: (
+      <>
+        Welcome to my <span className='text-foreground font-semibold'>profile</span>. Learn more about me, my background,
+        and what drives my passion for creating great experiences.
+      </>
+    )
+  },
+  {
+    name: 'Blog',
+    value: 'blog',
+    icon: BookOpen,
+    content: (
+      <>
+        Read my latest <span className='text-foreground font-semibold'>blog posts</span> on technology, design, and
+        insights from my professional journey. Stay tuned for new articles!
+      </>
+    )
+  },
+  {
+    name: 'Contact',
+    value: 'contact',
+    icon: Mail,
+    content: (
+      <>
+        Get in <span className='text-foreground font-semibold'>touch</span> with me through various channels.
+        I'd love to hear from you about collaboration opportunities or just to connect!
+      </>
+    )
+  },
+  {
+    name: 'Experience',
+    value: 'experience',
+    icon: Briefcase,
+    content: (
+      <>
+        Explore my <span className='text-foreground font-semibold'>professional experience</span> and the projects
+        I've worked on throughout my career. From startups to enterprises, I've learned it all.
+      </>
+    )
+  },
+  {
+    name: 'Projects',
+    value: 'projects',
+    icon: Code2,
+    content: <ProjectsContent />
+  },
+  {
+    name: 'Certificates',
+    value: 'certificates',
+    icon: Award,
+    content: (
+      <>
+        My <span className='text-foreground font-semibold'>certifications</span> and achievements recognize
+        my commitment to continuous learning and professional development.
+      </>
+    )
+  }
+]
+
+const AdminTabs = () => {
+  const { session } = useAuth()
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // session might take a moment to load
+    if (session !== undefined) {
+      setLoading(false)
+    }
+  }, [session])
+
+  // 1️⃣ Loading state
+  if (loading) {
+    return <Loading />
+  }
+
+  // 2️⃣ If session is null, redirect to Login
+  if (!session) {
+    return <Login />
+  }
+
+  // 3️⃣ If session exists, show tabs
+  return (
+    <div className='w-full flex flex-col gap-4'>
+      <div className='flex items-center w-full  justify-between'>
+        hello : {session.user.email}
+
+        <LogoutButton />
+      </div>
+      <Tabs defaultValue='profile' className='gap-4'>
+        <TabsList>
+          {tabs.map(({ icon: Icon, name, value }) => (
+            <TabsTrigger key={value} value={value} className='flex items-center gap-1 px-2.5 sm:px-3'>
+              <Icon />
+              {name}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+
+        {tabs.map(tab => (
+          <TabsContent key={tab.value} value={tab.value}>
+            <p className='text-muted-foreground text-sm'>{tab.content}</p>
+          </TabsContent>
+        ))}
+      </Tabs>
+    </div>
+  )
+}
+
+export default AdminTabs

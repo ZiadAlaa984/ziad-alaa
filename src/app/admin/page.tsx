@@ -9,18 +9,15 @@ import { useEffect, useState } from 'react'
 import Loading from '../loading'
 import { Button } from '@/components/ui/button'
 import { LogoutButton } from './auth/signout'
+import ProfileContent from './TabContent/ProfileContent'
+import Link from 'next/link'
 
 const tabs = [
   {
     name: 'Profile',
     value: 'profile',
     icon: User,
-    content: (
-      <>
-        Welcome to my <span className='text-foreground font-semibold'>profile</span>. Learn more about me, my background,
-        and what drives my passion for creating great experiences.
-      </>
-    )
+    content: <ProfileContent />
   },
   {
     name: 'Blog',
@@ -101,7 +98,12 @@ const AdminTabs = () => {
       <div className='flex items-center w-full  justify-between'>
         hello : {session.user.email}
 
-        <LogoutButton />
+        <div className='flex items-center gap-2'>
+          <Link href='/'>
+            <Button variant='outline'>Home</Button>
+          </Link>
+          <LogoutButton />
+        </div>
       </div>
       <Tabs defaultValue='profile' className='gap-4'>
         <TabsList>
@@ -115,7 +117,7 @@ const AdminTabs = () => {
 
         {tabs.map(tab => (
           <TabsContent key={tab.value} value={tab.value}>
-            <p className='text-muted-foreground text-sm'>{tab.content}</p>
+            {tab.content}
           </TabsContent>
         ))}
       </Tabs>

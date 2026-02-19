@@ -45,3 +45,11 @@ Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://
 # License
 
 Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/main/LICENSE.md).
+
+
+
+<!-- 
+image upload in storage use supabase component 
+handle profile picture upload
+test all code and make it reusable
+ -->

@@ -9,6 +9,7 @@ import "./globals.css";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { Toaster } from "@/components/ui/sonner";
 import AuthContextProvider from "@/context/useAuth";
+import QueryProvider from "@/components/query-provider";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -74,24 +75,26 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <AuthContextProvider>
-            <TooltipProvider delayDuration={0}>
-              <div className="absolute inset-0 top-0 left-0 right-0 h-[100px] overflow-hidden z-0">
-                <FlickeringGrid
-                  className="h-full w-full"
-                  squareSize={2}
-                  gridGap={2}
-                  style={{
-                    maskImage: "linear-gradient(to bottom, black, transparent)",
-                    WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
-                  }}
-                />
-              </div>
-              <div className="relative z-10 max-w-3xl mx-auto py-12 pb-24 sm:py-24 px-6">
-                {children}
-              </div>
-              <Navbar />
-              <Toaster />
-            </TooltipProvider>
+            <QueryProvider>
+              <TooltipProvider delayDuration={0}>
+                <div className="absolute inset-0 top-0 left-0 right-0 h-[100px] overflow-hidden z-0">
+                  <FlickeringGrid
+                    className="h-full w-full"
+                    squareSize={2}
+                    gridGap={2}
+                    style={{
+                      maskImage: "linear-gradient(to bottom, black, transparent)",
+                      WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+                    }}
+                  />
+                </div>
+                <div className="relative z-10 max-w-3xl mx-auto py-12 pb-24 sm:py-24 px-6">
+                  {children}
+                </div>
+                <Navbar />
+                <Toaster />
+              </TooltipProvider>
+            </QueryProvider>
           </AuthContextProvider>
         </ThemeProvider>
       </body>

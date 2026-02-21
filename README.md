@@ -49,7 +49,8 @@ Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/
 
 
 <!-- 
-image upload in storage use supabase component 
-handle profile picture upload
-test all code and make it reusable
+logic 
+api
+hook & function
+components
  -->

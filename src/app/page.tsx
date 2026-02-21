@@ -64,7 +64,7 @@ export default async function Page() {
             <h2 className="text-xl font-bold">Work Experience</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 6}>
-            <WorkSection />
+            <WorkSection work={RESUME_DATA?.work} />
           </BlurFade>
         </div>
       </section>

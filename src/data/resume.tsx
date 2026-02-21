@@ -84,7 +84,6 @@ export const DATA = {
     {
       company: "In Code",
       href: "https://incode.com",
-      badges: [],
       location: "Hybrid",
       title: "Full Stack Developer",
       logoUrl: "/incode.png",

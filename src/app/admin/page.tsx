@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button'
 import { LogoutButton } from './auth/signout'
 import ProfileContent from './TabContent/ProfileContent'
 import Link from 'next/link'
+import ExperienceContent from './TabContent/Experience/ExperienceContent'
 
 const tabs = [
   {
@@ -18,6 +19,12 @@ const tabs = [
     value: 'profile',
     icon: User,
     content: <ProfileContent />
+  },
+  {
+    name: 'Experience',
+    value: 'experience',
+    icon: Briefcase,
+    content: <ExperienceContent />
   },
   {
     name: 'Blog',
@@ -41,17 +48,7 @@ const tabs = [
       </>
     )
   },
-  {
-    name: 'Experience',
-    value: 'experience',
-    icon: Briefcase,
-    content: (
-      <>
-        Explore my <span className='text-foreground font-semibold'>professional experience</span> and the projects
-        I've worked on throughout my career. From startups to enterprises, I've learned it all.
-      </>
-    )
-  },
+
   {
     name: 'Projects',
     value: 'projects',

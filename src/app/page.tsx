@@ -16,7 +16,6 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default async function Page() {
   const RESUME_DATA: resumeType = await getPortfolioData();
-  console.log("🚀 ~ Page ~ RESUME_DATA:", RESUME_DATA)
   return (
     <main className="min-h-dvh flex flex-col gap-14 relative">
       <section id="hero">
@@ -74,13 +73,13 @@ export default async function Page() {
             <h2 className="text-xl font-bold">Education</h2>
           </BlurFade>
           <div className="flex flex-col gap-8">
-            {DATA.education.map((education, index) => (
+            {RESUME_DATA?.education?.map((education, index) => (
               <BlurFade
                 key={education.school}
                 delay={BLUR_FADE_DELAY * 8 + index * 0.05}
               >
                 <Link
-                  href={education.href}
+                  href={education.href || "/"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-x-3 justify-between group"
@@ -107,7 +106,7 @@ export default async function Page() {
                   </div>
                   <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
                     <span>
-                      {education.start} - {education.end}
+                      {education.dateRange}
                     </span>
                   </div>
                 </Link>

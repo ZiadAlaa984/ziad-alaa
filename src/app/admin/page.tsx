@@ -1,6 +1,6 @@
 "use client"
 
-import { User, BookOpen, Mail, Briefcase, Code2, Award } from 'lucide-react'
+import { User, BookOpen, Mail, Briefcase, Code2, Award, School } from 'lucide-react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import ProjectsContent from './TabContent/ProjectsContent'
 import Login from './auth/login'
@@ -12,6 +12,7 @@ import { LogoutButton } from './auth/signout'
 import ProfileContent from './TabContent/ProfileContent'
 import Link from 'next/link'
 import ExperienceContent from './TabContent/Experience/ExperienceContent'
+import EducationContent from './TabContent/Education/EducationContent'
 
 const tabs = [
   {
@@ -25,6 +26,12 @@ const tabs = [
     value: 'experience',
     icon: Briefcase,
     content: <ExperienceContent />
+  },
+  {
+    name: 'Education',
+    value: 'education',
+    icon: School,
+    content: <EducationContent />
   },
   {
     name: 'Blog',
@@ -105,7 +112,7 @@ const AdminTabs = () => {
       <Tabs defaultValue='profile' className='gap-4'>
         <TabsList>
           {tabs.map(({ icon: Icon, name, value }) => (
-            <TabsTrigger key={value} value={value} className='flex items-center gap-1 px-2.5 sm:px-3'>
+            <TabsTrigger key={value} value={value} className='flex cursor-pointer items-center gap-1 px-2.5 sm:px-3'>
               <Icon />
               {name}
             </TabsTrigger>

@@ -9,9 +9,9 @@ import { MongoDB } from "@/components/ui/svgs/MongoDB";
 import { Shadcn } from "@/components/ui/svgs/Shadcn";
 import { Supabase } from "@/components/ui/svgs/Supabase";
 import { Tailwind } from "@/components/ui/svgs/Tailwind";
-import { Css } from "@/components/ui/svgs/Css";
-import { Html } from "@/components/ui/svgs/Html";
-import { javascript } from "@/components/ui/svgs/javascript";
+import { Css } from "@/components/ui/svgs/css";
+import { Html } from "@/components/ui/svgs/html";
+import { Javascript } from "@/components/ui/svgs/javascript";
 import { Bootstrap } from "@/components/ui/svgs/Bootstrap";
 import Webflow from "@/components/ui/svgs/webflow";
 import Git from "@/components/ui/svgs/git";
@@ -39,7 +39,7 @@ export const DATA = {
     { name: "Tailwind CSS", icon: Tailwind },
     { name: "Css", icon: Css },
     { name: "Html", icon: Html },
-    { name: "JavaScript", icon: javascript },
+    { name: "JavaScript", icon: Javascript },
     { name: "Bootstrap", icon: Bootstrap },
     { name: "Webflow", icon: Webflow },
     { name: "Git", icon: Git },

@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { useForm } from "react-hook-form"
 import {
@@ -14,23 +13,13 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { workSchema, WorkScheme, WorkType } from "@/lib/schemes/workScheme"
-import useWork from "@/hooks/useWork"
 import { deleteImage, uploadImage } from "@/lib/image/imageUpload"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import ImageUpload from "@/shared/ImageUpload"
 import { CalendarRange } from "@/shared/CalendarRange"
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
-import { educationSchema, EducationScheme, EducationType } from "@/lib/schemes/educationScheme"
+
 import useEducation from "@/hooks/useEducation"
+import { educationSchema, EducationScheme, EducationType } from "@/lib/schemes/educationScheme"
 function FormEducation({ education }: { education?: EducationType }) {
 
     const { addEducationMutation, addEducationPending, updateEducationMutation, updateEducationPending } = useEducation()

@@ -13,6 +13,7 @@ import ProfileContent from './TabContent/ProfileContent'
 import Link from 'next/link'
 import ExperienceContent from './TabContent/Experience/ExperienceContent'
 import EducationContent from './TabContent/Education/EducationContent'
+import ContactContent from './TabContent/ContactContent/ContactContent'
 
 const tabs = [
   {
@@ -34,6 +35,12 @@ const tabs = [
     content: <EducationContent />
   },
   {
+    name: 'Contact',
+    value: 'contact',
+    icon: Mail,
+    content: <ContactContent />
+  },
+  {
     name: 'Blog',
     value: 'blog',
     icon: BookOpen,
@@ -44,17 +51,7 @@ const tabs = [
       </>
     )
   },
-  {
-    name: 'Contact',
-    value: 'contact',
-    icon: Mail,
-    content: (
-      <>
-        Get in <span className='text-foreground font-semibold'>touch</span> with me through various channels.
-        I'd love to hear from you about collaboration opportunities or just to connect!
-      </>
-    )
-  },
+
 
   {
     name: 'Projects',

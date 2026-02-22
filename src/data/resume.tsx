@@ -55,38 +55,35 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/ziadalaa984",
+        url: "https://github.com/ZiadAlaa984",
         icon: Icons.github,
         navbar: true,
       },
-
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://dub.sh/dillion-linkedin",
+        url: "https://www.linkedin.com/in/ziad-alaa-dev/",
         icon: Icons.linkedin,
-
         navbar: true,
       },
-      whatsapp: {
-        name: "X",
-        url: "https://dub.sh/dillion-twitter",
-        icon: Icons.x,
-
+      TikTok: {
+        name: "TikTok",
+        url: "https://www.tiktok.com/@ziadalaadev",
+        icon: Icons.tiktok,
         navbar: true,
       },
-      Youtube: {
-        name: "Youtube",
-        url: "https://dub.sh/dillion-youtube",
-        icon: Icons.youtube,
+      WhatsApp: {
+        name: "WhatsApp",
+        url: "https://wa.me/201225747823",
+        icon: Icons.whatsapp,
         navbar: true,
       },
-      email: {
+      Email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:ziadalaa984@gmail.com",
         icon: Icons.email,
-
         navbar: false,
       },
+
     },
   },
 

@@ -2,19 +2,18 @@
 
 import { User, BookOpen, Mail, Briefcase, Code2, Award, School } from 'lucide-react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import ProjectsContent from './TabContent/ProjectsContent'
 import Login from './auth/login'
 import { useAuth } from '@/context/useAuth'
 import { useEffect, useState } from 'react'
 import Loading from '../loading'
 import { Button } from '@/components/ui/button'
 import { LogoutButton } from './auth/signout'
-import ProfileContent from './TabContent/ProfileContent'
+import ProfileContent from './TabContent/Profile/ProfileContent'
 import Link from 'next/link'
 import ExperienceContent from './TabContent/Experience/ExperienceContent'
 import EducationContent from './TabContent/Education/EducationContent'
-import ContactContent from './TabContent/ContactContent/ContactContent'
-
+import ProjectsContent from './TabContent/Project/ProjectsContent'
+import CertificatesContent from './TabContent/Certificate/CertificatesContent'
 const tabs = [
   {
     name: 'Profile',
@@ -35,25 +34,6 @@ const tabs = [
     content: <EducationContent />
   },
   {
-    name: 'Contact',
-    value: 'contact',
-    icon: Mail,
-    content: <ContactContent />
-  },
-  {
-    name: 'Blog',
-    value: 'blog',
-    icon: BookOpen,
-    content: (
-      <>
-        Read my latest <span className='text-foreground font-semibold'>blog posts</span> on technology, design, and
-        insights from my professional journey. Stay tuned for new articles!
-      </>
-    )
-  },
-
-
-  {
     name: 'Projects',
     value: 'projects',
     icon: Code2,
@@ -63,13 +43,29 @@ const tabs = [
     name: 'Certificates',
     value: 'certificates',
     icon: Award,
-    content: (
-      <>
-        My <span className='text-foreground font-semibold'>certifications</span> and achievements recognize
-        my commitment to continuous learning and professional development.
-      </>
-    )
+    content: <CertificatesContent />
+
   }
+  // {
+  //   name: 'Contact',
+  //   value: 'contact',
+  //   icon: Mail,
+  //   content: <ContactContent />
+  // },
+  // {
+  //   name: 'Blog',
+  //   value: 'blog',
+  //   icon: BookOpen,
+  //   content: (
+  //     <>
+  //       Read my latest <span className='text-foreground font-semibold'>blog posts</span> on technology, design, and
+  //       insights from my professional journey. Stay tuned for new articles!
+  //     </>
+  //   )
+  // },
+
+
+
 ]
 
 const AdminTabs = () => {
@@ -106,7 +102,7 @@ const AdminTabs = () => {
           <LogoutButton />
         </div>
       </div>
-      <Tabs defaultValue='profile' className='gap-4'>
+      <Tabs defaultValue='profile' className='gap-4 '>
         <TabsList>
           {tabs.map(({ icon: Icon, name, value }) => (
             <TabsTrigger key={value} value={value} className='flex cursor-pointer items-center gap-1 px-2.5 sm:px-3'>

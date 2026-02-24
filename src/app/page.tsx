@@ -11,6 +11,7 @@ import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 import { getPortfolioData, resumeType } from "@/lib/query/portfolio";
+import CertificationsSection from "@/components/section/certifications-section";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -135,12 +136,12 @@ export default async function Page() {
       </section>
       <section id="projects">
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
-          <ProjectsSection />
+          <ProjectsSection projects={RESUME_DATA.projects} />
         </BlurFade>
       </section>
-      <section id="hackathons">
-        <BlurFade delay={BLUR_FADE_DELAY * 13}>
-          <HackathonsSection />
+      <section id="certifications">
+        <BlurFade delay={BLUR_FADE_DELAY * 11}>
+          <CertificationsSection certificates={RESUME_DATA.certificates} />
         </BlurFade>
       </section>
       <section id="contact">

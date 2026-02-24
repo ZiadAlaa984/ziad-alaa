@@ -7,6 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import Markdown from "react-markdown";
+import { Icons } from "./icons";
 
 function ProjectImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
@@ -29,29 +30,22 @@ interface Props {
   title: string;
   href?: string;
   description: string;
-  dates: string;
   tags: readonly string[];
   link?: string;
   image?: string;
   video?: string;
-  links?: readonly {
-    icon: React.ReactNode;
-    type: string;
-    href: string;
-  }[];
   className?: string;
+  github?: string;
 }
 
 export function ProjectCard({
   title,
   href,
+  github,
   description,
-  dates,
   tags,
-  link,
   image,
   video,
-  links,
   className,
 }: Props) {
   return (
@@ -83,33 +77,45 @@ export function ProjectCard({
             <div className="w-full h-48 bg-muted" />
           )}
         </Link>
-        {links && links.length > 0 && (
-          <div className="absolute top-2 right-2 flex flex-wrap gap-2">
-            {links.map((link, idx) => (
-              <Link
-                href={link.href}
-                key={idx}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
+        <div className="absolute top-2 right-2 flex flex-wrap gap-2">
+          {href && (
+            <Link
+              href={href || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Badge
+                className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90"
+                variant="default"
               >
-                <Badge
-                  className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90"
-                  variant="default"
-                >
-                  {link.icon}
-                  {link.type}
-                </Badge>
-              </Link>
-            ))}
-          </div>
-        )}
+                <Icons.globe className="size-3" />,
+                Website
+              </Badge>
+            </Link>
+          )}
+          {github && (
+            <Link
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Badge
+                className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90"
+                variant="default"
+              >
+                <Icons.github className="size-3" />,
+                GitHub
+              </Badge>
+            </Link>
+          )}
+        </div>
       </div>
       <div className="p-6 flex flex-col gap-3 flex-1">
         <div className="flex items-start justify-between gap-2">
           <div className="flex flex-col gap-1">
             <h3 className="font-semibold">{title}</h3>
-            <time className="text-xs text-muted-foreground">{dates}</time>
           </div>
           <Link
             href={href || "#"}

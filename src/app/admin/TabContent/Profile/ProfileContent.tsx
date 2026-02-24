@@ -18,7 +18,7 @@ import { profileScheme, ProfileScheme } from "@/lib/schemes/profileScheme"
 import { useEffect } from "react"
 import useProfile from "@/hooks/useProfile"
 import { uploadImage, deleteImage } from "@/lib/image/imageUpload"
-import ImageUpload from "../../../shared/ImageUpload"
+import ImageUpload from "../../../../shared/ImageUpload"
 import Request from "@/shared/Request"
 
 

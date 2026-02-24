@@ -43,7 +43,7 @@ export const workSchema = z.object({
         .min(10, { message: "Description must be at least 10 characters" })
         .max(2000, { message: "Description must be less than 2000 characters" }),
 
-    employmentType: z.enum(["full-time", "part-time", "internship"]),
+    employmentType: z.enum(["full-time", "part-time", "internship", "volunteer"]),
 });
 
 export type WorkScheme = z.infer<typeof workSchema>;
@@ -57,5 +57,5 @@ export type WorkType = {
     logoUrl: string | null;
     dateRange: string;
     description: string;
-    employmentType: "full-time" | "part-time" | "internship";
+    employmentType: "full-time" | "part-time" | "internship" | "volunteer";
 };

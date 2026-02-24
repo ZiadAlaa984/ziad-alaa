@@ -126,6 +126,9 @@ function FormExperience({ work }: { work?: WorkType }) {
                                                         <SelectItem value="internship">
                                                             Internship
                                                         </SelectItem>
+                                                        <SelectItem value="volunteer">
+                                                            Volunteer
+                                                        </SelectItem>
                                                     </SelectGroup>
                                                 </SelectContent>
                                             </Select>

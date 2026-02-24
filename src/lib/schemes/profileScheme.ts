@@ -2,8 +2,8 @@ import { z } from "zod";
 
 export const profileScheme = z.object({
     name: z.string().min(2).max(50),
-    description: z.string().min(2).max(100),
-    summary: z.string().min(2).max(1000),
+    description: z.string().min(2).max(300),
+    summary: z.string().min(2).max(300),
 
     avatarUrl: z
         .any()

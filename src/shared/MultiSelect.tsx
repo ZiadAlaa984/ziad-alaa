@@ -31,6 +31,7 @@ const Technologies = [
     "Webflow",
     "Git",
     "Figma",
+    "React Query",
 ] as const
 
 type Technology = (typeof Technologies)[number]

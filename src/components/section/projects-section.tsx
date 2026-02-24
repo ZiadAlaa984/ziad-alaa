@@ -22,7 +22,7 @@ export default function ProjectsSection({ projects }: { projects: projectType[] 
                         />
                     </div>
                     <div className="flex flex-col gap-y-3 items-center justify-center">
-                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Check out my latest work</h2>
+                        <h2 className="text-3xl font-bold tracking-tighter  text-center sm:text-4xl">Check out my latest work</h2>
                         <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed text-balance text-center">
                             I&apos;ve worked on a variety of projects, from simple
                             websites to complex web applications. Here are a few of my

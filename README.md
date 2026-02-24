@@ -49,8 +49,6 @@ Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/
 
 
 <!-- 
-logic 
-api
-hook & function
-components
+url website 
+
  -->

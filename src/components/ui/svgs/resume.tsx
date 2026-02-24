@@ -9,9 +9,9 @@ import { MongoDB } from "@/components/ui/svgs/MongoDB";
 import { Shadcn } from "@/components/ui/svgs/Shadcn";
 import { Supabase } from "@/components/ui/svgs/Supabase";
 import { Tailwind } from "@/components/ui/svgs/Tailwind";
-import { Css } from "@/components/ui/svgs/css";
-import { Html } from "@/components/ui/svgs/html";
-import { Javascript } from "@/components/ui/svgs/javascript";
+import { Css } from "@/components/ui/svgs/Css";
+import { Html } from "@/components/ui/svgs/Html";
+import { javascript } from "@/components/ui/svgs/javascript";
 import { Bootstrap } from "@/components/ui/svgs/Bootstrap";
 import Webflow from "@/components/ui/svgs/webflow";
 import Git from "@/components/ui/svgs/git";
@@ -39,7 +39,7 @@ export const DATA = {
     { name: "Tailwind CSS", icon: Tailwind },
     { name: "Css", icon: Css },
     { name: "Html", icon: Html },
-    { name: "JavaScript", icon: Javascript },
+    { name: "JavaScript", icon: javascript },
     { name: "Bootstrap", icon: Bootstrap },
     { name: "Webflow", icon: Webflow },
     { name: "Git", icon: Git },
@@ -62,27 +62,34 @@ export const DATA = {
 
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://dub.sh/dillion-linkedin",
+        url: "https://www.linkedin.com/in/ziad-alaa-dev/",
         icon: Icons.linkedin,
 
         navbar: true,
       },
-      whatsapp: {
-        name: "X",
-        url: "https://dub.sh/dillion-twitter",
-        icon: Icons.x,
 
+      CV: {
+        name: "CV",
+        url: "https://drive.google.com/drive/folders/1lNxKvvA-3T0i79LFhdKmU_ujmjv7cBHD",
+        icon: Icons.googleDrive,
+
+        navbar: true,
+      },
+      whatsapp: {
+        name: "Whatsapp",
+        url: "https://wa.me/201225747823",
+        icon: Icons.whatsapp,
         navbar: true,
       },
       Youtube: {
         name: "Youtube",
-        url: "https://dub.sh/dillion-youtube",
+        url: "#",
         icon: Icons.youtube,
-        navbar: true,
+        navbar: false,
       },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:ziadalaa984@gmail.com",
         icon: Icons.email,
 
         navbar: false,

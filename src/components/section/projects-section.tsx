@@ -1,12 +1,10 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/project-card";
-import { DATA } from "@/data/resume";
 import { projectType } from "@/lib/schemes/projectScheme";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function ProjectsSection({ projects }: { projects: projectType[] | undefined }) {
-    console.log("🚀 ~ ProjectsSection ~ projects:", projects)
     return (
         <section id="projects">
             <div className="flex min-h-0 flex-col gap-y-8">

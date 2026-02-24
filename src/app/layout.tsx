@@ -1,7 +1,7 @@
+// app/layout.tsx
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -10,6 +10,7 @@ import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { Toaster } from "@/components/ui/sonner";
 import AuthContextProvider from "@/context/useAuth";
 import QueryProvider from "@/components/query-provider";
+import { getPortfolioData, resumeType } from "@/lib/query/portfolio";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -23,43 +24,46 @@ const geistMono = Geist_Mono({
   variable: "--font-mono",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(DATA.url),
-  title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
-  },
-  description: DATA.description,
-  openGraph: {
-    title: `${DATA.name}`,
-    description: DATA.description,
-    url: DATA.url,
-    siteName: `${DATA.name}`,
-    locale: "en_US",
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+export async function generateMetadata(): Promise<Metadata> {
+  const resumeData: resumeType = await getPortfolioData();
+
+  return {
+    metadataBase: new URL(resumeData.url),
+    title: {
+      default: resumeData.name,
+      template: `%s | ${resumeData.name}`,
+    },
+    description: resumeData.description,
+    openGraph: {
+      title: resumeData.name,
+      description: resumeData.description,
+      url: resumeData.url,
+      siteName: resumeData.name,
+      locale: "en_US",
+      type: "website",
+    },
+    icons: {
+      icon: "/favicon.png",
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-  twitter: {
-    title: `${DATA.name}`,
-    card: "summary_large_image",
-  },
-  verification: {
-    google: "",
-    yandex: "",
-  },
-};
+    verification: {
+      google: "",
+      yandex: "",
+    },
+  };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -77,6 +81,7 @@ export default function RootLayout({
           <AuthContextProvider>
             <QueryProvider>
               <TooltipProvider delayDuration={0}>
+                {/* Flickering Grid */}
                 <div className="absolute inset-0 top-0 left-0 right-0 h-[100px] overflow-hidden z-0">
                   <FlickeringGrid
                     className="h-full w-full"
@@ -84,13 +89,18 @@ export default function RootLayout({
                     gridGap={2}
                     style={{
                       maskImage: "linear-gradient(to bottom, black, transparent)",
-                      WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+                      WebkitMaskImage:
+                        "linear-gradient(to bottom, black, transparent)",
                     }}
                   />
                 </div>
-                <div className="relative z-10 max-w-3xl mx-auto py-12 pb-24 sm:py-24 px-6">
+
+                {/* Page content */}
+                <div className="max-w-3xl mx-auto py-12 pb-24 sm:py-24 px-6">
                   {children}
                 </div>
+
+                {/* Navbar & Toaster */}
                 <Navbar />
                 <Toaster />
               </TooltipProvider>

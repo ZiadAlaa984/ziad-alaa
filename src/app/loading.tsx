@@ -1,6 +1,16 @@
+"use client"
+
+import Lottie from "lottie-react"
+import animationData from "../../public/Hello.json"
+
 export default function Loading() {
-    // Or a custom loading skeleton component
-    return <div className="flex items-center justify-center h-screen" >
-        <p>Loading...</p>
-    </div>
+    return (
+        <div className="fixed inset-0 z-[9999] overflow-hidden flex items-center justify-center bg-white">
+            <Lottie
+                animationData={animationData}
+                loop
+                className="w-60 h-60"
+            />
+        </div>
+    )
 }

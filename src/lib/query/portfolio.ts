@@ -26,6 +26,7 @@ export async function getPortfolioData() {
         contact,
         projects,
         certificates,
+        url: "https://ziad-alaa.vercel.app",
     }
 }
 
@@ -39,4 +40,5 @@ export interface resumeType {
     contact: ContactType;
     projects: projectType[];
     certificates: certificateType[];
+    url: string;
 }

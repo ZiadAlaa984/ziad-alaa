@@ -6,7 +6,6 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import ContactSection from "@/components/section/contact-section";
-import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
@@ -17,7 +16,6 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default async function Page() {
   const RESUME_DATA: resumeType = await getPortfolioData();
-  console.log("🚀 ~ Page ~ RESUME_DATA:", RESUME_DATA)
   return (
     <main className="min-h-dvh flex flex-col gap-14 relative">
       <section id="hero">

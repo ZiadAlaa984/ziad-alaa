@@ -1,6 +1,6 @@
 "use client"
 
-import { User, BookOpen, Mail, Briefcase, Code2, Award, School } from 'lucide-react'
+import { User, Briefcase, Code2, Award, School } from 'lucide-react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import Login from './auth/login'
 import { useAuth } from '@/context/useAuth'
@@ -93,21 +93,21 @@ const AdminTabs = () => {
   return (
     <div className='w-full flex flex-col gap-4'>
       <div className='flex items-center w-full  justify-between'>
-        hello : {session.user.email}
+        hello : {session.user.email?.slice(0, 4)}
 
         <div className='flex items-center gap-2'>
           <Link href='/'>
-            <Button variant='outline'>Home</Button>
+            <Button >Home</Button>
           </Link>
           <LogoutButton />
         </div>
       </div>
-      <Tabs defaultValue='profile' className='gap-4 '>
+      <Tabs defaultValue='profile' className='gap-4  '>
         <TabsList>
           {tabs.map(({ icon: Icon, name, value }) => (
             <TabsTrigger key={value} value={value} className='flex cursor-pointer items-center gap-1 px-2.5 sm:px-3'>
               <Icon />
-              {name}
+              {/* {name} */}
             </TabsTrigger>
           ))}
         </TabsList>

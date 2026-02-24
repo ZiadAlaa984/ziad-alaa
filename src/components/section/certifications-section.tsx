@@ -5,7 +5,6 @@ import { certificateType } from "@/lib/schemes/certificateScheme";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function CertificationsSection({ certificates }: { certificates: certificateType[] | undefined }) {
-    console.log("🚀 ~ CertificationsSection ~ certificates:", certificates)
     return (
         <section id="projects">
             <div className="flex min-h-0 flex-col gap-y-8">

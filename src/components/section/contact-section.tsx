@@ -127,7 +127,7 @@ export default function ContactSection() {
                 <FormControl>
                   <Input
                     type="email"
-                    placeholder="ziadalaa984@gmail.com"
+                    placeholder="example@gmail.com"
                     {...field}
                   />
                 </FormControl>

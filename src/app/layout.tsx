@@ -11,7 +11,7 @@ import { Toaster } from "@/components/ui/sonner";
 import AuthContextProvider from "@/context/useAuth";
 import QueryProvider from "@/components/query-provider";
 import { getPortfolioData, resumeType } from "@/lib/query/portfolio";
-
+import { Analytics } from "@vercel/analytics/next"
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -99,6 +99,7 @@ export default async function RootLayout({
                 <div className="max-w-3xl mx-auto py-12 pb-24 sm:py-24 px-6">
                   {children}
                 </div>
+                <Analytics />
 
                 {/* Navbar & Toaster */}
                 <Navbar />
